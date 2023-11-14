@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="shortcut icon" href="../img/logo-gsk.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/simplebar.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>GRSD X WAY</title>
+</head>
+<body>
+
+    <div class="main-page">
+        <nav class="nav-container">
+            <div class="btn-lang">
+                <button class="btn-lang__ua" onclick="changeLanguage('ua')"><img src="../icon/flag-ua.svg" alt="Укнаїнська"></button>
+                <button class="btn-lang__en" onclick="changeLanguage('en')" style="display:none"><img src="../icon/flag-en.svg" alt="Englesh"></button>
+            </div>
+            <a href="../index.html"><img src="../img/logo-gsk.svg" alt="Logo" class="logo-img"></a>
+            <div class="cart-item">
+                <button class="cart-btn" onclick="openSidebar()"><img src="../icon/cart-icon.svg" alt="Cart" class="cart-icon"></button>
+                <span class="cart-quantity">0</span>
+            </div>
+            <div id="sidebar" class="sidebar">
+                <div class="sidebar-content">
+                    <div class="title-btn__close">
+                        <p class="sidebar-title" data-ua="Кошик" data-en="Cart">Кошик</p>
+                        <button class="close-btn" onclick="closeSidebar()">&#128473;</button>
+                    </div>
+                    <div class="cart-content">
+                        <ul class="cart-content__list" data-simplebar></ul>
+                        <div class="cart-content__bottom">
+                            <div class="cart-content__fullprice">
+                                <span data-ua="Разом:" data-en="Subtotal:">Разом:</span>
+                                <span class="fullprice">0 $</span>
+                            </div>
+                            <button onclick="closeSidebar()" class="cart-content__btn check-btn" data-ua="Оформлення замовлення" data-en="Checkout" data-graph-path="modal" data-graph-animation="fadeInUp">Оформлення замовлення</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="descr-page__item">
+            <h2 class="delivery-title" data-ua="Договір публічної оферти" data-en="Terms">Договір публічної оферти</h2>
+            <h2 class="delivery-title__descr" data-ua="Загальні положення" data-en="">Загальні положення</h2>
+            <p class="delivery-descr__title-litle" data-ua="1.1. Справжня оферта є офіційною пропозицією Optimus Store, далі за текстом — «Продавець», укласти Договір купівлі-продажу товарів дистанційним способом, тобто через Інтернет-магазин, далі за текстом — «Договір», і розміщує Публічну оферту (пропозицію) на офіційному інтернет-сайті Продавця “https://grsd-way.kyiv.ua/” (далі – “Інтернет-сайт”)." data-en="1.1. The real offer is the official offer of Optimus Store, hereinafter referred to as the “Seller”, to conclude the Contract for the purchase of goods remotely, i.e. through the Internet store, hereinafter referred to as the “Agreement”, and places the Public Offer (offer) on the official Internet to the Seller’s website “https://grsd-way.kyiv.ua/” (hereinafter – “Website”).">1.1. Справжня оферта є офіційною пропозицією Optimus Store, далі за текстом — «Продавець», укласти Договір купівлі-продажу товарів дистанційним способом, тобто через Інтернет-магазин, далі за текстом — «Договір», і розміщує Публічну оферту (пропозицію) на офіційному інтернет-сайті Продавця “https://grsd-way.kyiv.ua/” (далі – “Інтернет-сайт”).</p>
+            <p class="delivery-descr__title-bottom" data-ua="1.2. Моментом повного та безумовного прийняття Покупцем пропозиції Продавця (акцептом) укласти електронний договір купівлі-продажу товарів, вважається факт оплати Покупцем замовлення на умовах цього Договору, у строки та за цінами, вказаними на Інтернет-сайті Продавця." data-en="1.2. The moment of complete and unconditional acceptance by the Buyer of the Seller’s offer (acceptance) to conclude an electronic contract for the sale of goods is considered the fact of payment by the Buyer of the order under the terms of this Agreement, within the time and at the prices indicated on the Seller’s Internet site.">1.2. Моментом повного та безумовного прийняття Покупцем пропозиції Продавця (акцептом) укласти електронний договір купівлі-продажу товарів, вважається факт оплати Покупцем замовлення на умовах цього Договору, у строки та за цінами, вказаними на Інтернет-сайті Продавця.</p>
+            
+            <h2 class="delivery-title__descr" data-ua="Поняття та визначення" data-en="Concepts and definitions">Поняття та визначення</h2>
+            <p class="delivery-descr__title-litle" data-ua="2.1. У цій оферті, якщо контекст не вимагає іншого, наведені нижче терміни мають такі значення:" data-en="2.1. In this offer, unless the context otherwise requires, the following terms have the following meanings:">2.1. У цій оферті, якщо контекст не вимагає іншого, наведені нижче терміни мають такі значення:</p>
+            <p class="delivery-descr__title-bottom" data-ua="«товар» – моделі, аксесуари, комплектуючі та супровідні предмети;" data-en="“goods” – models, accessories, components and accompanying items;">«товар» – моделі, аксесуари, комплектуючі та супровідні предмети;</p>
+            <p class="delivery-descr__title-bottom" data-ua="«Інтернет-магазин» – відповідно до Закону України «про електронну комерцію», засіб для подання або реалізації товару, роботи чи послуги шляхом вчинення електронної угоди." data-en="“Internet store” – in accordance with the Law of Ukraine “on electronic commerce”, a means for presenting or selling a product, work or service by entering into an electronic agreement.">«Інтернет-магазин» – відповідно до Закону України «про електронну комерцію», засіб для подання або реалізації товару, роботи чи послуги шляхом вчинення електронної угоди.</p>
+            <p class="delivery-descr__title-bottom" data-ua="«Продавець» – компанія, що реалізує товари, які представлені на Інтернет-сайті." data-en="“Seller” is a company that sells goods that are presented on the Internet site.">«Продавець» – компанія, що реалізує товари, які представлені на Інтернет-сайті.</p>
+            <p class="delivery-descr__title-bottom" data-ua="«Покупець» – фізична особа, яка уклала з Продавцем Договір на умовах, викладених нижче." data-en="“Buyer” is a natural person who has entered into an Agreement with the Seller on the terms set forth below.">«Покупець» – фізична особа, яка уклала з Продавцем Договір на умовах, викладених нижче.</p>
+            <p class="delivery-descr__title-bottom" data-ua="«Замовлення» – вибір окремих позицій із переліку товарів, зазначених Покупцем під час розміщення замовлення та проведення оплати." data-en="“Order” – the selection of individual items from the list of goods specified by the Buyer when placing the order and making payment.">«Замовлення» – вибір окремих позицій із переліку товарів, зазначених Покупцем під час розміщення замовлення та проведення оплати.</p>
+            
+            <h2 class="delivery-title__descr" data-ua="Предмет договору" data-en="Scope of the contract">Предмет договору</h2>
+            <p class="delivery-descr__title-litle"  data-ua="3.1. Продавець зобов’язується передати у власність Покупця Товар, а Покупець зобов’язується сплатити та прийняти Товар на умовах цього Договору." data-en="3.1. The Seller undertakes to hand over the Goods to the Buyer, and the Buyer undertakes to pay and accept the Goods under the terms of this Agreement.">3.1. Продавець зобов’язується передати у власність Покупця Товар, а Покупець зобов’язується сплатити та прийняти Товар на умовах цього Договору.</p>
+            <p class="delivery-descr__title-bottom" data-ua="Цей Договір регулює купівлю-продаж товарів в Інтернет-магазині, зокрема:" data-en="This Agreement regulates the purchase and sale of goods in the online store, in particular:">Цей Договір регулює купівлю-продаж товарів в Інтернет-магазині, зокрема:</p>
+            <p class="delivery-descr__title-bottom" data-ua="Добровільний вибір Покупцем товарів в Інтернет-магазині;" data-en="Voluntary choice by the Buyer of goods in the online store;">Добровільний вибір Покупцем товарів в Інтернет-магазині;</p>
+            <p class="delivery-descr__title-bottom" data-ua="Самостійне оформлення Покупцем замовлення в Інтернет-магазині;" data-en="Self-registration of the order by the Buyer in the online store;">Самостійне оформлення Покупцем замовлення в Інтернет-магазині;</p>
+            <p class="delivery-descr__title-bottom" data-ua="оплата Покупцем замовлення, оформленого в Інтернет-магазині;" data-en="payment by the Buyer of the order placed in the online store;">оплата Покупцем замовлення, оформленого в Інтернет-магазині;</p>
+            <p class="delivery-descr__title-bottom" data-ua="обробка та доставка замовлення Покупцю у власність на умовах цього Договору." data-en="processing and delivery of the order to the Buyer under the terms of this Agreement.">обробка та доставка замовлення Покупцю у власність на умовах цього Договору.</p>
+
+            <h2 class="delivery-title__descr" data-ua="Порядок оформлення замовлення" data-en="Procedure for placing an order">Порядок оформлення замовлення</h2>
+            <p class="delivery-descr__title-litle"  data-ua="4.1. Покупець має право оформити замовлення на будь-який товар, представлений на Сайті Інтернет-магазину та наявний." data-en="4.1. The buyer has the right to place an order for any product presented on the Online Store Site and available.">4.1. Покупець має право оформити замовлення на будь-який товар, представлений на Сайті Інтернет-магазину та наявний.</p>
+            <p class="delivery-descr__title-bottom" data-ua="4.2. Кожна позиція може бути представлена в замовлення у будь-якій кількості." data-en="4.2. Each item can be presented in an order in any quantity.">4.2. Кожна позиція може бути представлена в замовлення у будь-якій кількості.</p>
+            <p class="delivery-descr__title-bottom" data-ua="4.3. За відсутності товару на складі, Менеджер компанії зобов’язаний повідомити Покупця (по телефону або через електронну пошту)." data-en="4.3. If the product is not in stock, the Company Manager is obliged to inform the Buyer (by phone or e-mail).">4.3. За відсутності товару на складі, Менеджер компанії зобов’язаний повідомити Покупця (по телефону або через електронну пошту).</p>
+            <p class="delivery-descr__title-bottom" data-ua="4.4. За відсутності товару Покупець має право замінити його товаром аналогічної моделі, відмовитися від цього товару, анулювати замовлення." data-en="4.4. If the product is not available, the Buyer has the right to replace it with a product of a similar model, refuse this product, cancel the order.">4.4. За відсутності товару Покупець має право замінити його товаром аналогічної моделі, відмовитися від цього товару, анулювати замовлення.</p>
+
+            <h2 class="delivery-title__descr" data-ua="Порядок оплати замовлення" data-en="Order payment procedure">Порядок оплати замовлення</h2>
+            <p class="delivery-descr__title-litle"  data-ua="Післяплатою5.1. Оплата товару здійснюється онлайн за допомогою сервісу Fondy. Оплата за доставку здійснюється за фактом отримання товару у відділенні транспортної компанії." data-en="Postpaid 5.1. Payment for the product is made online using the Fondy service. Payment for delivery is made upon receipt of the goods at the branch of the transport company.">Післяплатою5.1. Оплата товару здійснюється онлайн за допомогою сервісу Fondy. Оплата за доставку здійснюється за фактом отримання товару у відділенні транспортної компанії.</p>
+            <p class="delivery-descr__title-bottom" data-ua="5.2. При ненадходженні коштів Інтернет-магазин залишає за собою право анулювати замовлення." data-en="5.2. If funds are not received, the online store reserves the right to cancel the order.">5.2. При ненадходженні коштів Інтернет-магазин залишає за собою право анулювати замовлення.</p>
+
+            <h2 class="delivery-title__descr" data-ua="Умови доставки замовлення" data-en="Terms of order delivery">Умови доставки замовлення</h2>
+            <p class="delivery-descr__title-litle"  data-ua="6.1. Доставка товарів, придбаних в Інтернет-магазині, здійснюється до складів транспортних компаній, де й провадиться видача замовлень." data-en="6.1. Goods purchased in the online store are delivered to the warehouses of transport companies, where orders are issued.">6.1. Доставка товарів, придбаних в Інтернет-магазині, здійснюється до складів транспортних компаній, де й провадиться видача замовлень.</p>
+            <p class="delivery-descr__title-bottom" data-ua="6.2. Разом із замовленням Покупцю надаються документи згідно із законодавством України." data-en="6.2. Together with the order, the Buyer is provided with documents in accordance with the legislation of Ukraine.">6.2. Разом із замовленням Покупцю надаються документи згідно із законодавством України.</p>
+
+            <h2 class="delivery-title__descr" data-ua="Права та обов’язки сторін:" data-en="Rights and duties">Права та обов’язки сторін:</h2>
+            <p class="delivery-descr__title-litle"  data-ua="7.1. Продавець має право:" data-en="7.1. The seller has the right to:">7.1. Продавець має право:</p>
+            <p class="delivery-descr__title-bottom" data-ua="в односторонньому порядку призупинити надання послуг за цим договором у разі порушення Покупцем умов цього договору." data-en="unilaterally suspend the provision of services under this contract in the event of a breach by the Buyer of the terms of this contract.">в односторонньому порядку призупинити надання послуг за цим договором у разі порушення Покупцем умов цього договору.</p>
+            <p class="delivery-descr__title-litle"  data-ua="7.2. Покупець зобов’язаний:" data-en="7.2. The buyer is obliged to:">7.2. Покупець зобов’язаний:</p>
+            <p class="delivery-descr__title-bottom" data-ua="своєчасно сплатити та отримати замовлення на умовах цього договору." data-en="timely pay and receive the order under the terms of this contract.">своєчасно сплатити та отримати замовлення на умовах цього договору.</p>
+            <p class="delivery-descr__title-litle"  data-ua="7.3. Покупець має право:" data-en="7.3. The buyer has the right to:">7.3. Покупець має право:</p>
+            <p class="delivery-descr__title-bottom" data-ua="Оформити замовлення в Інтернет-магазині;" data-en="Place an order in the online store;">Оформити замовлення в Інтернет-магазині;</p>
+            <p class="delivery-descr__title-litle"  data-ua="оформити електронний договір;" data-en="draw up an electronic contract;">оформити електронний договір;</p>
+            <p class="delivery-descr__title-bottom" data-ua="вимагати від Продавця виконання умов цього Договору." data-en="require the Seller to fulfill the terms of this Agreement.">вимагати від Продавця виконання умов цього Договору.</p>
+
+            <h2 class="delivery-title__descr" data-ua="Відповідальність сторін" data-en="Responsibilities of the parties">Відповідальність сторін</h2>
+            <p class="delivery-descr__title-litle"  data-ua="8.1. Сторони несуть відповідальність за невиконання або неналежне виконання умов цього договору у порядку, передбаченому цим договором та чинним законодавством України." data-en="8.1. The parties are responsible for non-fulfillment or improper fulfillment of the terms of this contract in the manner provided by this contract and the current legislation of Ukraine.">8.1. Сторони несуть відповідальність за невиконання або неналежне виконання умов цього договору у порядку, передбаченому цим договором та чинним законодавством України.</p>
+            <p class="delivery-descr__title-bottom" data-ua="8.2. Продавець не несе відповідальності за:" data-en="8.2. The seller is not responsible for:">8.2. Продавець не несе відповідальності за:</p>
+            <p class="delivery-descr__title-litle"  data-ua="Змінений виробником зовнішній вигляд Товару;" data-en="The appearance of the Product has been changed by the manufacturer;">Змінений виробником зовнішній вигляд Товару;</p>
+            <p class="delivery-descr__title-bottom" data-ua="за незначну невідповідність кольорової гами товару, що може відрізнятися від оригіналу товару виключно через різну колірну передачу моніторів персональних комп’ютерів окремих моделей;" data-en="for a slight discrepancy in the color range of the product, which may differ from the original product solely due to different color rendering of personal computer monitors of individual models;">за незначну невідповідність кольорової гами товару, що може відрізнятися від оригіналу товару виключно через різну колірну передачу моніторів персональних комп’ютерів окремих моделей;</p>
+            <p class="delivery-descr__title-litle"  data-ua="за зміст та правдивість інформації, що надається Покупцем під час оформлення замовлення;" data-en="for the content and veracity of the information provided by the Buyer when placing an order;">за зміст та правдивість інформації, що надається Покупцем під час оформлення замовлення;</p>
+            <p class="delivery-descr__title-bottom" data-ua="за затримку та перебої у наданні Послуг (обробки замовлення та доставки товару), що відбуваються з причин, що знаходяться поза сферою його контролю;" data-en="for delays and interruptions in the provision of Services (order processing and delivery of goods) that occur for reasons beyond its control;">за затримку та перебої у наданні Послуг (обробки замовлення та доставки товару), що відбуваються з причин, що знаходяться поза сферою його контролю;</p>
+            <p class="delivery-descr__title-litle"  data-ua="за протиправні незаконні дії, здійснені Покупцем за допомогою цього доступу до мережі Інтернет;" data-en="for unlawful illegal actions performed by the Buyer using this access to the Internet;">за протиправні незаконні дії, здійснені Покупцем за допомогою цього доступу до мережі Інтернет;</p>
+            <p class="delivery-descr__title-bottom" data-ua="за передачу Покупцем своїх мережевих ідентифікаторів – IP, MAC-адреси, логіну та паролю третім особам;" data-en="for the transfer by the Buyer of his network identifiers – IP, MAC addresses, login and password to third parties;">за передачу Покупцем своїх мережевих ідентифікаторів – IP, MAC-адреси, логіну та паролю третім особам;</p>
+            <p class="delivery-descr__title-litle"  data-ua="8.3. Покупець, використовуючи наданий йому доступ до мережі Інтернет, самостійно несе відповідальність за шкоду, заподіяну його діями (особисто, навіть якщо під її логіном знаходилася інша особа) особам або їхньому майну, юридичним особам, державі чи моральним принципам моральності." data-en="8.3. The buyer, using the access to the Internet provided to him, is independently responsible for the damage caused by his actions (personally, even if another person was under his login) to persons or their property, legal entities, the state or moral principles of morality.">8.3. Покупець, використовуючи наданий йому доступ до мережі Інтернет, самостійно несе відповідальність за шкоду, заподіяну його діями (особисто, навіть якщо під її логіном знаходилася інша особа) особам або їхньому майну, юридичним особам, державі чи моральним принципам моральності.</p>
+            <p class="delivery-descr__title-bottom" data-ua="8.4. У разі настання обставин непереборної сили сторони звільняються від виконання умов цього договору. Під обставинами непереборної сили з метою цього договору розуміються події, що мають надзвичайний, непередбачуваний характер." data-en="8.4. In the event of force majeure, the parties are released from fulfilling the terms of this contract. Circumstances of force majeure for the purposes of this contract mean events of an extraordinary, unpredictable nature.">8.4. У разі настання обставин непереборної сили сторони звільняються від виконання умов цього договору. Під обставинами непереборної сили з метою цього договору розуміються події, що мають надзвичайний, непередбачуваний характер.</p>
+
+        </div>
+
+        <div class="modal" role="dialog" aria-modal="true" data-graph-target="modal">
+            <button class="modal__close">&#128473;</button>
+
+            <div class="order-modal__left">
+
+                <p class="payment-delivery__title" data-ua="Ваші данні" data-en="Your data">Ваші данні</p>
+
+                <form class="form-item" id="tg" method="POST">
+
+                    <label class="input-title" for="first_name" data-ua="Ім'я *" data-en="First name *">Ім'я *</label>
+                    <input class="form-input" type="text" id="first_name" name="first_name">
+                
+                    <label class="input-title" for="last_name" data-ua="Прізвище *" data-en="Last name *">Прізвище *</label>
+                    <input class="form-input" type="text" id="last_name" name="last_name">
+                
+                    <label class="input-title" for="phone" data-ua="Телефон *" data-en="Phone *">Телефон *</label>
+                    <input class="form-input" type="tel" id="phone" name="phone">
+                
+                    <label class="input-title" for="email" data-ua="E-mail адреса *" data-en="Email address *">E-mail адреса *</label>
+                    <input class="form-input" type="email" id="email" name="email">
+                
+                    <label class="input-title__country" for="email" data-ua="Країна/Регіон *" data-en="Country / Region *">Країна/Регіон *</label>
+                    <input class="form-input" type="text" id="country-input" name="country">
+                    <ul class="select-list" id="country-list"></ul>
+
+                    <label class="input-title__country" data-ua="Служба доставки *" data-en="Delivery service *">Служба доставки *</label>
+                    <select class="form-input" id="delivery-service">
+                        <option data-ua="Спосіб доставки" data-en="Delivery method">Спосіб доставки</option>
+                        <option value="Nova-Poshta" data-ua="Нова Пошта" data-en="Nova-Poshta">Нова Пошта</option>
+                        <option value="Ukrposhta" data-ua="Укрпошта" data-en="Ukrposhta">Укрпошта</option>
+                    </select>
+    
+                    <p class="input-title" data-ua="Область / Регіон *" data-en="Oblast / Region *">Область / Регіон *</p>
+                    <input class="form-input" type="text" id="region" name="region">
+    
+                    <p class="input-title" data-ua="Місто / Населений пункт доставки *" data-en="City / Town of delivery *">Місто / Населений пункт доставки *</p>
+                    <input class="form-input" type="text" id="city" name="city">
+    
+                    <p class="input-title" data-ua="Номер вiддiлення / Поштовий індекс *" data-en="Branch / Postcode(ZIP) *">Номер вiддiлення / Поштовий індекс *</p>
+                    <input class="form-input" type="text" id="branch" name="branch">
+    
+                    <p class="input-title" data-ua="Назва вулиці / Адреса поштового відділення *" data-en="Street address / Post office *">Назва вулиці / Адреса поштового відділення *</p>
+                    <input class="form-input" type="text" name="address">
+
+                    <p class="input-title__textarea" data-ua="Нотатки до замовлень " data-en="Order notes">Нотатки до замовлень </p>
+                    <textarea class="text-area" id="myTextarea" name="myTextarea"></textarea>
+
+                </form>
+        
+            </div>
+        
+            <div class="order-modal__right">
+                <div class="order-modal__top">
+                    <h2 class="order-modal__title" data-ua="Ваше замовлення" data-en="You order">Ваше замовлення</h2>
+                </div>
+                <div class="order-modal__info">
+                    <div class="order-modal__product">
+                        <ul class="order-modal__list"></ul>
+                    </div>
+                    <div class="order-modal__quantity-number">
+                        <p class="order-modal__item-text" data-ua="Ваше замовлення: шт" data-en="You order">Ваше замовлення: шт</p>
+                        <div class="order-modal__quantity order-modal__info-item"><span>0</span></div>
+                    </div>
+                    <div class="order-modal__shipping">
+                        <div class="order-modal__text-shipp order-modal__info-item" data-ua="Доставка: " data-en="Delivery: ">Доставка: </div>
+                        <span class="order-shipp">0 $</span>
+                    </div>
+                    <div class="order-modal__subtotal">
+                        <p class="order-modal__item-text" data-ua="Проміжний підсумок:" data-en="Subtotal:">Проміжний підсумок:</p>
+                        <div class="order-modal__summ order-modal__info-item"><span>0</span></div>
+                    </div>
+                    <div class="order-modal__subtotal">
+                        <p class="order-modal__item-text" data-ua="Підсумок:" data-en="Total:">Підсумок:</p>
+                        <span class="total">0 $</span>
+                    </div>
+                    <div class="payment">
+                        <p class="big-text">Visa, Mastercard, Apple Pay, Google Pay</p>
+                        <p class="litle-text">Fondy</p>
+                    </div>
+                    <div class="privacy-policy">
+                        <p class="privacy-policy__text" data-ua="Ваші персональні дані будуть використані для обробки вашого замовлення, підтримки вашого досвіду на цьому веб-сайті та для інших цілей, які передбачає наша політика конфіденційності." data-en="Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
+                        <a href="../page-descr/privacy-policy.html" class="link" data-ua="детальніше" data-en="more detail">детальніше</a>
+                    </div>
+                    <button class="config-btn" data-ua="Підтвердити замовлення" data-en="Place prder">Підтвердити замовлення</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="subscriptio-item">
+            <p class="subscription-title" data-ua="Підпишіться на оновлення" data-en="Sign up for updates">Підпишіться на оновлення</p>
+            <div class="input-container">
+                <input class="text-input" type="text" id="textInput" placeholder="slava@ukraine.ua">
+                <button id="sendButton" data-ua="Надіслати" data-en="Send">Надіслати</button>
+            </div>
+            
+            <a href="../page-descr/delivery-descr.html" class="descr-page__link" data-ua="Доставка" data-en="Delivery">Доставка</a>
+            <a href="../page-descr/contact-us.html" class="descr-page__link" data-ua="Контакти" data-en="Contact Us">Контакти</a>
+            <a href="../page-descr/privacy-policy.html" class="descr-page__link" data-ua="Політика конфіденційності" data-en="Privacy Policy">Політика конфіденційності</a>
+        </div>
+
+    </div>
+
+    <script src="../js/libs/modal.js"></script>
+    <script src="../js/simplebar.js"></script>
+    <script src="../js/cart/cart.js"></script>
+    <script src="../js/lang/lang-btn.js"></script>
+    <script src="../js/nav/nav.js"></script>
+
+</body>
+</html>
+

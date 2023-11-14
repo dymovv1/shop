@@ -1,0 +1,87 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+.modal {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: 1fr 10px 1fr;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+	padding: 10px;
+	--transition-time: 0.3s;
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1000;
+	background-color: #fff;
+	overflow-y: auto;
+	overflow-x: auto;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: var(--transition-time);
+	-o-transition: var(--transition-time);
+	transition: var(--transition-time);
+}
+
+.modal__container {
+    background-color: #fff;
+}
+
+.modal__close {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.modal.is-open {
+	opacity: 1;
+	visibility: visible;
+	-webkit-transition: var(--transition-time);
+	-o-transition: var(--transition-time);
+	transition: var(--transition-time);
+}
+
+.fade {
+	opacity: 0;
+	-webkit-transition: var(--transition-time);
+	-o-transition: var(--transition-time);
+	transition: var(--transition-time);
+}
+
+.fade.animate-open {
+	opacity: 1;
+	-webkit-transition: var(--transition-time);
+	-o-transition: var(--transition-time);
+	transition: var(--transition-time);
+}
+
+.fadeInUp {
+	opacity: 0;
+	-webkit-transform: translateY(-100px);
+	    -ms-transform: translateY(-100px);
+	        transform: translateY(-100px);
+	-webkit-transition: var(--transition-time);
+	-o-transition: var(--transition-time);
+	transition: var(--transition-time);
+}
+
+.fadeInUp.animate-open {
+	opacity: 1;
+	-webkit-transform: translateY(0);
+	    -ms-transform: translateY(0);
+	        transform: translateY(0);
+	-webkit-transition: var(--transition-time);
+	-o-transition: var(--transition-time);
+	transition: var(--transition-time);
+}

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="shortcut icon" href="../img/logo-gsk.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/simplebar.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>GRSD X WAY</title>
+</head>
+<body>
+
+    <div class="main-page">
+        <nav class="nav-container">
+            <div class="btn-lang">
+                <button class="btn-lang__ua" onclick="changeLanguage('ua')"><img src="../icon/flag-ua.svg" alt="Укнаїнська"></button>
+                <button class="btn-lang__en" onclick="changeLanguage('en')" style="display:none"><img src="../icon/flag-en.svg" alt="Englesh"></button>
+            </div>
+            <a href="../index.html"><img src="../img/logo-gsk.svg" alt="Logo" class="logo-img"></a>
+            <div class="cart-item">
+                <button class="cart-btn" onclick="openSidebar()"><img src="../icon/cart-icon.svg" alt="Cart" class="cart-icon"></button>
+                <span class="cart-quantity">0</span>
+            </div>
+            <div id="sidebar" class="sidebar">
+                <div class="sidebar-content">
+                    <div class="title-btn__close">
+                        <p class="sidebar-title" data-ua="Кошик" data-en="Cart">Кошик</p>
+                        <button class="close-btn" onclick="closeSidebar()">&#128473;</button>
+                    </div>
+                    <div class="cart-content">
+                        <ul class="cart-content__list" data-simplebar></ul>
+                        <div class="cart-content__bottom">
+                            <div class="cart-content__fullprice">
+                                <span data-ua="Разом:" data-en="Subtotal:">Разом:</span>
+                                <span class="fullprice">0 $</span>
+                            </div>
+                            <button onclick="closeSidebar()" class="cart-content__btn check-btn" data-ua="Оформлення замовлення" data-en="Checkout" data-graph-path="modal" data-graph-animation="fadeInUp">Оформлення замовлення</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="descr-page__item">
+            <h2 class="delivery-title" data-ua="Доставка" data-en="Delivery">Доставка</h2>
+            <p class="delivery-descr__title-litle" data-ua="Обробка та відправка замовлень відбувається протягом 15 робочих днів після успішної оплати замовлення." data-en="Orders are processed and shipped within 15 business days after successful payment.">Обробка та відправка замовлень відбувається протягом 15 робочих днів після успішної оплати замовлення.</p>
+            <div class="delivery-item__title">
+                <div class="delivery-item__descr">
+                    <div class="delivery-country">
+                        <div class="country-title">
+                            <p class="stong-title" data-ua="Країна" data-en="Country">Країна</p>
+                        </div>
+                        <div class="country-title">
+                            <p class="small-title" data-ua="Україна" data-en="Ukraine">Україна</p>
+                        </div>
+                        <div class="country-title">
+                            <p class="small-title" data-ua="Україна" data-en="Ukraine">Україна</p>
+                        </div>
+                        <div class="country-title">
+                            <p class="small-title" data-ua="Інші" data-en="Others">Інші</p>
+                        </div>
+                        <div class="country-title">
+                            <p class="small-title" data-ua="Інші" data-en="Others">Інші</p>
+                        </div>
+                    </div>
+                    <div class="delivery-time">
+                        <div class="country-title">
+                            <p class="stong-title" data-ua="Термін доставки*" data-en="Delivery estimated time*">Термін доставки*</p>
+                        </div>
+                        <div class="country-title">
+                            <p class="small-title" data-ua="1-3 робочих дні" data-en="1-3 business days">1-3 робочих дні</p>
+                        </div>
+                        <div class="country-title">
+                            <p class="small-title" data-ua="3-7 робочих дні" data-en="3-7 business days">3-7 робочих дні</p>
+                        </div>
+                        <div class="country-title">
+                            <p class="small-title" data-ua="7-21 дні" data-en="7-21 days">7-21 дні</p>
+                        </div>
+                        <div class="country-title">
+                            <p class="small-title" data-ua="7-21 дні" data-en="7-21 days">7-21 дні</p>
+                        </div>
+                    </div>
+                    <div class="delivery-service">
+                        <div class="country-title">
+                            <p class="stong-title" data-ua="Служба доставки" data-en="Delivery service">Служба доставки</p>
+                        </div>
+                        <div class="country-title">
+                            <p class="small-title" data-ua="Нова Пошта" data-en="Nova Poshta">Нова Пошта</p>
+                        </div>
+                        <div class="country-title">
+                            <p class="small-title" data-ua="Укрпошта" data-en="Ukrposhta">Укрпошта</p>
+                        </div>
+                        <div class="country-title">
+                            <p class="small-title" data-ua="Нова Пошта" data-en="Nova Poshta">Нова Пошта</p>
+                        </div>
+                        <div class="country-title">
+                            <p class="small-title" data-ua="Укрпошта" data-en="Ukrposhta">Укрпошта</p>
+                        </div>
+                    </div>
+                    <div class="delivery-cost">
+                        <div class="country-title">
+                            <p class="stong-title" data-ua="Вартість*" data-en="Cost*">Вартість*</p>
+                        </div>
+                        <div class="country-title">
+                            <p class="small-title" data-ua="від 50 грн" data-en="from UAH 50">від 50 грн</p>
+                        </div>
+                        <div class="country-title">
+                            <p class="small-title" data-ua="від 30 грн" data-en="from UAH 30">від 30 грн</p>
+                        </div>
+                        <div class="country-title">
+                            <p class="small-title" data-ua="від 400 грн" data-en="from UAH 400">від 400 грн</p>
+                        </div>
+                        <div class="country-title">
+                            <p class="small-title" data-ua="від 350 грн" data-en="from UAH 350">від 350 грн</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="delivery-descr__title-bottom" data-ua="Замовлення, надіслані за межі України, зберігаються на пошті 5 днів. Після закінчення терміну зберігання замовлення автоматично скасовується без можливості повторної доставки." data-en="Orders sent outside of Ukraine are kept at the post office for 5 days. After the expiration of the storage period, the order is automatically canceled without the possibility of redelivery.">Замовлення, надіслані за межі України, зберігаються на пошті 5 днів. Після закінчення терміну зберігання замовлення автоматично скасовується без можливості повторної доставки.</p>
+            <div class="post-text">
+                <p class="delivery-descr__bottom-post" data-ua="Якщо у вас залишилися питання щодо термінів та методів доставки, будь ласка, напишіть нам,  В імейлі обов’язково вкажіть номер замовлення, ім’я та номер телефону." data-en="If you have any questions about delivery times and methods, please email us:">Якщо у вас залишилися питання щодо термінів та методів доставки, будь ласка, напишіть нам,  В імейлі обов’язково вкажіть номер замовлення, ім’я та номер телефону.</p>
+                <a href="mailto:example@example.com">grsdxway@gmail.com</a>
+            </div>
+            <h2 class="delivery-title__track" data-ua="Відстеження замовлення" data-en="Order tracking">Відстеження замовлення</h2>
+            <p class="delivery-descr__title-bottom" data-ua="Кожному відправленому замовленню надається трек код, за яким ви зможете відстежити його переміщення та статус. Трек коди надсилаються автоматично." data-en="Each shipped order is provided with a track code, by which you can track its movement and status. Track codes are sent automatically.">Кожному відправленому замовленню надається трек код, за яким ви зможете відстежити його переміщення та статус. Трек коди надсилаються автоматично.</p>
+            <div class="post-text">
+                <p class="delivery-descr__bottom-post" data-ua="Якщо ви не отримали свій трек код або хочете отримати трек код надсилання Нової Пошти, будь ласка, напишіть нам. В імейлі обов’язково вкажіть номер замовлення, ім’я та номер телефону." data-en="If you have not received your track code or want to receive a track code for sending Nova Poshta, please write to us. Be sure to include the order number, name and phone number in the e-mail.">Якщо ви не отримали свій трек код або хочете отримати трек код надсилання Нової Пошти, будь ласка, напишіть нам. В імейлі обов’язково вкажіть номер замовлення, ім’я та номер телефону.</p>
+                <a href="mailto:example@example.com">grsdxway@gmail.com</a>
+            </div>
+            <h2 class="delivery-title__track" data-ua="Повернення" data-en="Return">Повернення</h2>
+            <div class="post-text">
+                <p class="delivery-descr__bottom-post" data-ua="Повернення товару можливе лише за наявності видимих фізичних ушкоджень. Будь ласка, перевіряйте товар відразу після отримання посилки на пошті. Для оформлення повернення необхідно зробити фото ушкоджень і надіслати нам імейл. У своєму листі вкажіть номер замовлення, дату оформлення замовлення, ім’я та номер телефону." data-en="The return of the product is possible only in the presence of visible physical damage. Please check the product immediately after receiving the package at the post office. To process the return, you must take a photo of the damage and send us an email. Please include your order number, order date, name and phone number in your letter.">Повернення товару можливе лише за наявності видимих фізичних ушкоджень. Будь ласка, перевіряйте товар відразу після отримання посилки на пошті. Для оформлення повернення необхідно зробити фото ушкоджень і надіслати нам імейл. У своєму листі вкажіть номер замовлення, дату оформлення замовлення, ім’я та номер телефону.</p>
+                <a href="mailto:example@example.com">grsdxway@gmail.com</a>
+            </div>
+        </div>
+
+
+
+        <div class="modal" role="dialog" aria-modal="true" data-graph-target="modal">
+            <button class="modal__close">&#128473;</button>
+
+            <div class="order-modal__left">
+
+                <p class="payment-delivery__title" data-ua="Ваші данні" data-en="Your data">Ваші данні</p>
+
+                <form class="form-item" id="tg" method="POST">
+
+                    <label class="input-title" for="first_name" data-ua="Ім'я *" data-en="First name *">Ім'я *</label>
+                    <input class="form-input" type="text" id="first_name" name="first_name">
+                
+                    <label class="input-title" for="last_name" data-ua="Прізвище *" data-en="Last name *">Прізвище *</label>
+                    <input class="form-input" type="text" id="last_name" name="last_name">
+                
+                    <label class="input-title" for="phone" data-ua="Телефон *" data-en="Phone *">Телефон *</label>
+                    <input class="form-input" type="tel" id="phone" name="phone">
+                
+                    <label class="input-title" for="email" data-ua="E-mail адреса *" data-en="Email address *">E-mail адреса *</label>
+                    <input class="form-input" type="email" id="email" name="email">
+                
+                    <label class="input-title__country" for="email" data-ua="Країна/Регіон *" data-en="Country / Region *">Країна/Регіон *</label>
+                    <input class="form-input" type="text" id="country-input" name="country">
+                    <ul class="select-list" id="country-list"></ul>
+
+                    <label class="input-title__country" data-ua="Служба доставки *" data-en="Delivery service *">Служба доставки *</label>
+                    <select class="form-input" id="delivery-service">
+                        <option data-ua="Спосіб доставки" data-en="Delivery method">Спосіб доставки</option>
+                        <option value="Nova-Poshta" data-ua="Нова Пошта" data-en="Nova-Poshta">Нова Пошта</option>
+                        <option value="Ukrposhta" data-ua="Укрпошта" data-en="Ukrposhta">Укрпошта</option>
+                    </select>
+    
+                    <p class="input-title" data-ua="Область / Регіон *" data-en="Oblast / Region *">Область / Регіон *</p>
+                    <input class="form-input" type="text" id="region" name="region">
+    
+                    <p class="input-title" data-ua="Місто / Населений пункт доставки *" data-en="City / Town of delivery *">Місто / Населений пункт доставки *</p>
+                    <input class="form-input" type="text" id="city" name="city">
+    
+                    <p class="input-title" data-ua="Номер вiддiлення / Поштовий індекс *" data-en="Branch / Postcode(ZIP) *">Номер вiддiлення / Поштовий індекс *</p>
+                    <input class="form-input" type="text" id="branch" name="branch">
+    
+                    <p class="input-title" data-ua="Назва вулиці / Адреса поштового відділення *" data-en="Street address / Post office *">Назва вулиці / Адреса поштового відділення *</p>
+                    <input class="form-input" type="text" name="address">
+
+                    <p class="input-title__textarea" data-ua="Нотатки до замовлень " data-en="Order notes">Нотатки до замовлень </p>
+                    <textarea class="text-area" id="myTextarea" name="myTextarea"></textarea>
+
+                </form>
+        
+            </div>
+        
+            <div class="order-modal__right">
+                <div class="order-modal__top">
+                    <h2 class="order-modal__title" data-ua="Ваше замовлення" data-en="You order">Ваше замовлення</h2>
+                </div>
+                <div class="order-modal__info">
+                    <div class="order-modal__product">
+                        <ul class="order-modal__list"></ul>
+                    </div>
+                    <div class="order-modal__quantity-number">
+                        <p class="order-modal__item-text" data-ua="Ваше замовлення: шт" data-en="You order">Ваше замовлення: шт</p>
+                        <div class="order-modal__quantity order-modal__info-item"><span>0</span></div>
+                    </div>
+                    <div class="order-modal__shipping">
+                        <div class="order-modal__text-shipp order-modal__info-item" data-ua="Доставка: " data-en="Delivery: ">Доставка: </div>
+                        <span class="order-shipp">0 $</span>
+                    </div>
+                    <div class="order-modal__subtotal">
+                        <p class="order-modal__item-text" data-ua="Проміжний підсумок:" data-en="Subtotal:">Проміжний підсумок:</p>
+                        <div class="order-modal__summ order-modal__info-item"><span>0</span></div>
+                    </div>
+                    <div class="order-modal__subtotal">
+                        <p class="order-modal__item-text" data-ua="Підсумок:" data-en="Total:">Підсумок:</p>
+                        <span class="total">0 $</span>
+                    </div>
+                    <div class="payment">
+                        <p class="big-text">Visa, Mastercard, Apple Pay, Google Pay</p>
+                        <p class="litle-text">Fondy</p>
+                    </div>
+                    <div class="privacy-policy">
+                        <p class="privacy-policy__text" data-ua="Ваші персональні дані будуть використані для обробки вашого замовлення, підтримки вашого досвіду на цьому веб-сайті та для інших цілей, які передбачає наша політика конфіденційності." data-en="Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
+                        <a href="../page-descr/privacy-policy.html" class="link" data-ua="детальніше" data-en="more detail">детальніше</a>
+                    </div>
+
+                    <button class="config-btn" data-ua="Підтвердити замовлення" data-en="Place prder">Підтвердити замовлення</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="subscriptio-item">
+            <p class="subscription-title" data-ua="Підпишіться на оновлення" data-en="Sign up for updates">Підпишіться на оновлення</p>
+            <div class="input-container">
+                <input class="text-input" type="text" id="textInput" placeholder="slava@ukraine.ua">
+                <button id="sendButton" data-ua="Надіслати" data-en="Send">Надіслати</button>
+            </div>
+            
+            <a href="../page-descr/delivery-descr.html" class="descr-page__link" data-ua="Доставка" data-en="Delivery">Доставка</a>
+            <a href="../page-descr/contact-us.html" class="descr-page__link" data-ua="Контакти" data-en="Contact Us">Контакти</a>
+            <a href="../page-descr/privacy-policy.html" class="descr-page__link" data-ua="Політика конфіденційності" data-en="Privacy Policy">Політика конфіденційності</a>
+        </div>
+
+    </div>
+
+    <script src="../js/libs/modal.js"></script>
+    <script src="../js/simplebar.js"></script>
+    <script src="../js/cart/cart.js"></script>
+    <script src="../js/lang/lang-btn.js"></script>
+    <script src="../js/nav/nav.js"></script>
+
+    
+
+</body>
+</html>
+

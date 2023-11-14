@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="shortcut icon" href="../img/logo-gsk.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/simplebar.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>GRSD X WAY</title>
+</head>
+<body>
+
+    <div class="main-page">
+        <nav class="nav-container">
+            <div class="btn-lang">
+                <button class="btn-lang__ua" onclick="changeLanguage('ua')"><img src="../icon/flag-ua.svg" alt="Укнаїнська"></button>
+                <button class="btn-lang__en" onclick="changeLanguage('en')" style="display:none"><img src="../icon/flag-en.svg" alt="Englesh"></button>
+            </div>
+            <a href="../index.html"><img src="../img/logo-gsk.svg" alt="Logo" class="logo-img"></a>
+            <div class="cart-item">
+                <button class="cart-btn" onclick="openSidebar()"><img src="../icon/cart-icon.svg" alt="Cart" class="cart-icon"></button>
+                <span class="cart-quantity">0</span>
+            </div>
+            <div id="sidebar" class="sidebar">
+                <div class="sidebar-content">
+                    <div class="title-btn__close">
+                        <p class="sidebar-title" data-ua="Кошик" data-en="Cart">Кошик</p>
+                        <button class="close-btn" onclick="closeSidebar()">&#128473;</button>
+                    </div>
+                    <div class="cart-content">
+                        <ul class="cart-content__list" data-simplebar></ul>
+                        <div class="cart-content__bottom">
+                            <div class="cart-content__fullprice">
+                                <span data-ua="Разом:" data-en="Subtotal:">Разом:</span>
+                                <span class="fullprice">0 $</span>
+                            </div>
+                            <button onclick="closeSidebar()" class="cart-content__btn check-btn" data-ua="Оформлення замовлення" data-en="Checkout" data-graph-path="modal" data-graph-animation="fadeInUp">Оформлення замовлення</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="page-grid">
+            <div class="left-item">
+                <div class="container">
+    
+                    <img src="../img/bilyy-khudi/bilyy-khudi-1.png" alt="Велика картинка" class="large-image" id="largeImage">
+
+                    <div class="small-img__container">
+                        <img src="../img/bilyy-khudi/bilyy-khudi-1.png" alt="Маленька картинка" class="small-image" onclick="changeLargeImage('../img/bilyy-khudi/bilyy-khudi-1.png')">
+                        <img src="../img/bilyy-khudi/bilyy-khudi-2.png" alt="Маленька картинка" class="small-image" onclick="changeLargeImage('../img/bilyy-khudi/bilyy-khudi-2.png')">
+                        <img src="../img/bilyy-khudi/bilyy-khudi-3.png" alt="Маленька картинка" class="small-image" onclick="changeLargeImage('../img/bilyy-khudi/bilyy-khudi-3.png')">
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="right-item">
+                <div class="title-item">
+                    <p class="title">"DIRTY MILK" HOODIE</p>
+                </div>
+                <div class="descr-item">
+                    <p class="descr" data-ua="Вироблено в Києві" data-en="Made in Kyiv">Вироблено в Києві</p>
+                    <p class="descr" data-ua="100% бавовна" data-en="100% cotton">100% бавовна</p>
+                </div>
+                <span class="price">97 $</span>
+                <p class="size-text" data-ua="Розміри" data-en="Size">Розміри</p>
+                <div class="size-item">
+                    <button class="size-btn__big">BIG</button>
+                    <button class="size-btn__bigger">BIGGER</button>
+                </div>
+                <button class="add-btn" data-ua="Додати в кошик" data-en="Add to cart">Додати в кошик</button>
+
+                <div class="btn-drop">
+
+                    <button id="toggleButton1" data-ua="Інформація" data-en="Info">Інформація</button>
+                    <div id="block1" class="hiddenBlock" data-ua="Речі, які ви отримуєте, можуть дещо відрізнятися від зображень на сайті через те, що фарбування є на 100% ручною роботою. Шовкотрафаретний друк. Глибокий капюшон." data-en="The items you receive may vary slightly from the images on the website due to the fact that the painting is 100% handmade. Silk screen printing. Deep hood.">Речі, які ви отримуєте, можуть дещо відрізнятися від зображень на сайті через те, що фарбування є на 100% ручною роботою. Шовкотрафаретний друк. Глибокий капюшон.</div>
+                
+                    <button id="toggleButton2" data-ua="Догляд" data-en="Care">Догляд</button>
+                    <div id="block2" class="hiddenBlock" data-ua="Машинне холодне прання в однакових кольорах, навиворіт, якщо декоровано. Сушити в пральній машині на низькому рівні. Гладити навиворіт." data-en="Machine cold wash with like colors, inside out if decorated. Tumble dry low. Iron inside out.">Машинне холодне прання в однакових кольорах, навиворіт, якщо декоровано. Сушити в пральній машині на низькому рівні. Гладити навиворіт.</div>
+
+                    <button id="toggleButton3" data-ua="Розмір" data-en="Size">Розмір</button>
+                    <div id="block3" class="hiddenBlock">
+                        <div class="size-block">
+                            <p>BIG<br><br></p>
+                            <span data-ua="Довжина спереду: 57 cм" data-en="Front length: 57 cm">Довжина спереду: 57 cм</span><br>
+                            <span data-ua="Ширина плеч: 63 cм" data-en="Shoulder width: 63 cm">Ширина плеч: 63 cм</span><br>
+                            <span data-ua="Довжина рукава: 63 cм" data-en="Sleeve length: 63 cm">Довжина рукава: 63 cм</span><br>
+                        </div>
+                        <div class="size-block__bottom">
+                            <p>BIGGER<br><br></p>
+                            <span data-ua="Довжина спереду: 60 cм" data-en="Front length: 60 cm">Довжина спереду: 57 cм</span><br>
+                            <span data-ua="Ширина плеч: 67 cм" data-en="Shoulder width: 67 cm">Ширина плеч: 63 cм</span><br>
+                            <span data-ua="Довжина рукава: 68 cм" data-en="Sleeve length: 68 cm">Довжина рукава: 63 cм</span><br>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal" role="dialog" aria-modal="true" data-graph-target="modal">
+            <button class="modal__close">&#128473;</button>
+
+            <div class="order-modal__left">
+
+                <p class="payment-delivery__title" data-ua="Ваші данні" data-en="Your data">Ваші данні</p>
+
+                <form class="form-item" id="tg" method="POST">
+
+                    <label class="input-title" for="first_name" data-ua="Ім'я *" data-en="First name *">Ім'я *</label>
+                    <input class="form-input" type="text" id="first_name" name="first_name">
+                
+                    <label class="input-title" for="last_name" data-ua="Прізвище *" data-en="Last name *">Прізвище *</label>
+                    <input class="form-input" type="text" id="last_name" name="last_name">
+                
+                    <label class="input-title" for="phone" data-ua="Телефон *" data-en="Phone *">Телефон *</label>
+                    <input class="form-input" type="tel" id="phone" name="phone">
+                
+                    <label class="input-title" for="email" data-ua="E-mail адреса *" data-en="Email address *">E-mail адреса *</label>
+                    <input class="form-input" type="email" id="email" name="email">
+                
+                    <label class="input-title__country" for="email" data-ua="Країна/Регіон *" data-en="Country / Region *">Країна/Регіон *</label>
+                    <input class="form-input" type="text" id="country-input" name="country">
+                    <ul class="select-list" id="country-list"></ul>
+
+                    <label class="input-title__country" data-ua="Служба доставки *" data-en="Delivery service *">Служба доставки *</label>
+                    <select class="form-input" id="delivery-service">
+                        <option data-ua="Спосіб доставки" data-en="Delivery method">Спосіб доставки</option>
+                        <option value="Nova-Poshta" data-ua="Нова Пошта" data-en="Nova-Poshta">Нова Пошта</option>
+                        <option value="Ukrposhta" data-ua="Укрпошта" data-en="Ukrposhta">Укрпошта</option>
+                    </select>
+    
+                    <p class="input-title" data-ua="Область / Регіон *" data-en="Oblast / Region *">Область / Регіон *</p>
+                    <input class="form-input" type="text" id="region" name="region">
+    
+                    <p class="input-title" data-ua="Місто / Населений пункт доставки *" data-en="City / Town of delivery *">Місто / Населений пункт доставки *</p>
+                    <input class="form-input" type="text" id="city" name="city">
+    
+                    <p class="input-title" data-ua="Номер вiддiлення / Поштовий індекс *" data-en="Branch / Postcode(ZIP) *">Номер вiддiлення / Поштовий індекс *</p>
+                    <input class="form-input" type="text" id="branch" name="branch">
+    
+                    <p class="input-title" data-ua="Назва вулиці / Адреса поштового відділення *" data-en="Street address / Post office *">Назва вулиці / Адреса поштового відділення *</p>
+                    <input class="form-input" type="text" name="address">
+
+                    <p class="input-title__textarea" data-ua="Нотатки до замовлень " data-en="Order notes">Нотатки до замовлень </p>
+                    <textarea class="text-area" id="myTextarea" name="myTextarea"></textarea>
+
+                </form>
+        
+            </div>
+        
+            <div class="order-modal__right">
+                <div class="order-modal__top">
+                    <h2 class="order-modal__title" data-ua="Ваше замовлення" data-en="You order">Ваше замовлення</h2>
+                </div>
+                <div class="order-modal__info">
+                    <div class="order-modal__product">
+                        <ul class="order-modal__list"></ul>
+                    </div>
+                    <div class="order-modal__quantity-number">
+                        <p class="order-modal__item-text" data-ua="Ваше замовлення: шт" data-en="You order">Ваше замовлення: шт</p>
+                        <div class="order-modal__quantity order-modal__info-item"><span>0</span></div>
+                    </div>
+                    <div class="order-modal__shipping">
+                        <div class="order-modal__text-shipp order-modal__info-item" data-ua="Доставка: " data-en="Delivery: ">Доставка: </div>
+                        <span class="order-shipp">0 $</span>
+                    </div>
+                    <div class="order-modal__subtotal">
+                        <p class="order-modal__item-text" data-ua="Проміжний підсумок:" data-en="Subtotal:">Проміжний підсумок:</p>
+                        <div class="order-modal__summ order-modal__info-item"><span>0</span></div>
+                    </div>
+                    <div class="order-modal__subtotal">
+                        <p class="order-modal__item-text" data-ua="Підсумок:" data-en="Total:">Підсумок:</p>
+                        <span class="total">0 $</span>
+                    </div>
+                    <div class="payment">
+                        <p class="big-text">Visa, Mastercard, Apple Pay, Google Pay</p>
+                        <p class="litle-text">Fondy</p>
+                    </div>
+                    <div class="privacy-policy">
+                        <p class="privacy-policy__text" data-ua="Ваші персональні дані будуть використані для обробки вашого замовлення, підтримки вашого досвіду на цьому веб-сайті та для інших цілей, які передбачає наша політика конфіденційності." data-en="Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
+                        <a href="../page-descr/privacy-policy.html" class="link" data-ua="детальніше" data-en="more detail">детальніше</a>
+                    </div>
+                    <a href="https://pay.fondy.eu/s/GCvT6m6sBCPIpDSD"><button class="config-btn" data-ua="Підтвердити замовлення" data-en="Place prder">Підтвердити замовлення</button></a>
+                    
+                </div>
+            </div>
+
+        </div>
+
+        <div class="subscriptio-item">
+            <p class="subscription-title" data-ua="Підпишіться на оновлення" data-en="Sign up for updates">Підпишіться на оновлення</p>
+            <div class="input-container">
+                <input class="text-input" type="text" id="textInput" placeholder="slava@ukraine.ua">
+                <button id="sendButton" data-ua="Надіслати" data-en="Send">Надіслати</button>
+            </div>
+            
+            <a href="../page-descr/delivery-descr.html" class="descr-page__link" data-ua="Доставка" data-en="Delivery">Доставка</a>
+            <a href="../page-descr/contact-us.html" class="descr-page__link" data-ua="Контакти" data-en="Contact Us">Контакти</a>
+            <a href="../page-descr/privacy-policy.html" class="descr-page__link" data-ua="Політика конфіденційності" data-en="Privacy Policy">Політика конфіденційності</a>
+        </div>
+
+    </div>
+
+    <script>
+        function changeLargeImage(newImageSrc) {
+            var largeImage = document.getElementById('largeImage');
+            largeImage.src = newImageSrc;
+        }
+    </script>
+
+    <script src="../js/simplebar.js"></script>
+    <script src="../js/libs/modal.js"></script>
+    <script src="../js/lang/lang-btn.js"></script>
+    <script src="../js/cart/cart.js"></script>
+    <script src="../js/drop/drop-btn.js"></script>
+    <script src="../js/nav/nav.js"></script>
+
+</body>
+</html>
